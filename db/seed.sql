@@ -15,8 +15,26 @@ CREATE TABLE orders (
 
 CREATE TABLE order_item (
     order_item_id SERIAL PRIMARY KEY,
-    product_key INTEGER REFERENCES product(product_id),
+    product_id INTEGER REFERENCES product(product_id),
     order_id INTEGER REFERENCES orders(order_id),
     quantity INTEGER
 );
 
+CREATE TABLE product (
+    product_id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    price NUMERIC,
+    img_url VARCHAR(255)
+);
+
+CREATE TABLE product_size (
+    product_size_id SERIAL PRIMARY KEY,
+    size VARCHAR(20),
+    tall BOOLEAN
+);
+
+CREATE TABLE shirt (
+    shirt_id SERIAL PRIMARY KEY,
+    product_id INTEGER REFERENCES product(product_id),
+    product_size_id INTEGER REFERENCES product_size(product_size_id)
+)
