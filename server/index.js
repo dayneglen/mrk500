@@ -5,6 +5,7 @@ const express = require('express'),
       { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env,
       authCtrl = require('./controllers/authController'),
       productCtrl = require('./controllers/productController'),
+      cartCtrl = require('./controllers/cartController'),
       app = express();
 
 app.use(express.json());
@@ -28,14 +29,18 @@ app.post('/auth/login', authCtrl.login);
 app.post('/auth/register', authCtrl.register);
 app.get('/auth/logout', authCtrl.logout);
 
-// Cart endpoints
-
 // Product endpoints
 app.get('/api/products', productCtrl.getProducts);
 app.get('/api/product/:id', productCtrl.getProduct);
 app.post('/api/product', productCtrl.addProduct);
 app.put('/api/product/:id', productCtrl.updateProduct);
 app.delete('/api/product/:id', productCtrl.deleteProduct);
+
+// Cart endpoints
+app.get('/api/cart', cartCtrl.getCart);
+app.post('/api/cart/:id', cartCtrl.addItem);
+app.put('/api/cart/:id', cartCtrl.updateQuantity);
+app.delete('/api/cart/:id', cartCtrl.removeItem);
 
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));
