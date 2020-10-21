@@ -15,7 +15,7 @@ CREATE TABLE orders (
 
 CREATE TABLE order_item (
     order_item_id SERIAL PRIMARY KEY,
-    product_id INTEGER REFERENCES product(product_id),
+    shirt_id INTEGER REFERENCES shirt(shirt_id),
     order_id INTEGER REFERENCES orders(order_id),
     quantity INTEGER
 );

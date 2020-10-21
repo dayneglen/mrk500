@@ -6,6 +6,7 @@ const express = require('express'),
       authCtrl = require('./controllers/authController'),
       productCtrl = require('./controllers/productController'),
       cartCtrl = require('./controllers/cartController'),
+      orderCtrl = require('./controllers/orderController'),
       app = express();
 
 app.use(express.json());
@@ -41,6 +42,11 @@ app.get('/api/cart', cartCtrl.getCart);
 app.post('/api/cart/:id', cartCtrl.addItem);
 app.put('/api/cart/:id', cartCtrl.updateQuantity);
 app.delete('/api/cart/:id', cartCtrl.removeItem);
+
+// Order endpoints
+app.post('/api/order/:id', orderCtrl.placeOrder);
+app.get('/api/orders', orderCtrl.getOrders);
+app.get('api/order/:id', orderCtrl.getCustomerOrders);
 
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));
