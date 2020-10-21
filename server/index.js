@@ -7,6 +7,7 @@ const express = require('express'),
       productCtrl = require('./controllers/productController'),
       cartCtrl = require('./controllers/cartController'),
       orderCtrl = require('./controllers/orderController'),
+      stripeCtrl = require('./controllers/stripeController'),
       app = express();
 
 app.use(express.json());
@@ -47,6 +48,9 @@ app.delete('/api/cart/:id', cartCtrl.removeItem);
 app.post('/api/order/:id', orderCtrl.placeOrder);
 app.get('/api/orders', orderCtrl.getOrders);
 app.get('api/order/:id', orderCtrl.getCustomerOrders);
+
+// Stripe Endpoint
+app.post('/api/payment', stripeCtrl.completePayment);
 
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));

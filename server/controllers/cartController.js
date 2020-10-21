@@ -26,7 +26,7 @@ module.exports = {
             cart[foundProduct].quantity += quantity;
         }
 
-        return res.status(200).send(cart);
+        res.status(200).send(cart);
     },
     updateQuantity: (req, res) => {
         const id = +req.params.id,
@@ -43,7 +43,8 @@ module.exports = {
     removeItem: (req, res) => {
         const id = +req.params.id,
               { cart } = req.session;
-        let foundIndex = cart.findIndex(item => item.product.product_id === id);
+        
+        let foundIndex = cart.findIndex(currentShirt => currentShirt.shirt.shirt_id === id);
         cart.splice(foundIndex, 1);
         res.status(200).send(cart);
     }
