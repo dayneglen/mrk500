@@ -30,6 +30,7 @@ massive({
 app.post('/auth/login', authCtrl.login);
 app.post('/auth/register', authCtrl.register);
 app.get('/auth/logout', authCtrl.logout);
+app.get('/auth/user', authCtrl.getUser)
 
 // Product endpoints
 app.get('/api/products', productCtrl.getProducts);

@@ -39,5 +39,12 @@ module.exports = {
     logout: (req, res) => {
         req.session.destroy();
         res.sendStatus(200);
+    },
+    getUser: (req, res) => {
+        if (req.session && req.session.user) {
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(401);
+        }
     }
 }
