@@ -42,9 +42,9 @@ module.exports = {
     },
     getUser: (req, res) => {
         if (req.session && req.session.user) {
-            res.sendStatus(200);
+            res.status(200).send(req.session.user);
         } else {
-            res.sendStatus(401);
+            res.sendStatus(401)
         }
     }
 }

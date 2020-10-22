@@ -24,7 +24,8 @@ CREATE TABLE product (
     product_id SERIAL PRIMARY KEY,
     name VARCHAR(100),
     price NUMERIC,
-    img_url VARCHAR(255)
+    img_url VARCHAR(255),
+    show_product BOOLEAN default true
 );
 
 CREATE TABLE product_size (

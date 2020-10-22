@@ -37,17 +37,10 @@ module.exports = {
             res.sendStatus(200);
         }).catch(err => console.log(err));
     },
-    deleteProduct: async (req, res) => {
+    removeProduct: async (req, res) => {
         const id = +req.params.id,
             db = req.app.get('db');
 
-        try {
-            await db.products.delete_shirt(id)
-            await db.products.delete_product(id)
-        }
-        catch {
-
-        }
-        res.sendStatus(200);
+        db.products.remove_product(id).then(_ => res.sendStatus(200)).catch(err => console.log(err));
     }
 }

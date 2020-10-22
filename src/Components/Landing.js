@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import React from 'react';
 
 const Landing = props => {
-    console.log(props)
-
+    
     return (
         <div>
 

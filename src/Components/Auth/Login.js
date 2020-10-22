@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser } from '../../redux/userReducer';
@@ -21,9 +21,9 @@ const Login = props => {
         <form>
             <h1>Login</h1>
             <label htmlFor='email'>Email</label>
-            <input type='text' id='email' onChange={e => setEmail(e.target.value)}></input>
+            <input value={email} type='text' id='email' onChange={e => setEmail(e.target.value)}></input>
             <label htmlFor='password'>Password</label>
-            <input type='password' id='password' onChange={e => setPassword(e.target.value)}></input>
+            <input value={password} type='password' id='password' onChange={e => setPassword(e.target.value)}></input>
             <button onClick={handleLogin}>Login</button>
             <p>Don't have an account? <Link to='/register'>Create one</Link></p>
         </form>

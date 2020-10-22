@@ -30,14 +30,14 @@ massive({
 app.post('/auth/login', authCtrl.login);
 app.post('/auth/register', authCtrl.register);
 app.get('/auth/logout', authCtrl.logout);
-app.get('/auth/user', authCtrl.getUser)
+app.get('/auth/user', authCtrl.getUser);
 
 // Product endpoints
 app.get('/api/products', productCtrl.getProducts);
 app.get('/api/product/:id', productCtrl.getProduct);
 app.post('/api/product', productCtrl.addProduct);
 app.put('/api/product/:id', productCtrl.updateProduct);
-app.delete('/api/product/:id', productCtrl.deleteProduct);
+app.put('/api/product/remove/:id', productCtrl.removeProduct);
 
 // Cart endpoints
 app.get('/api/cart', cartCtrl.getCart);
