@@ -1,13 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Login from '../Auth/Login';
 import CartItem from './CartItem';
 import { connect } from 'react-redux';
 import { getCart } from '../../redux/cartReducer';
 import axios from 'axios';
+import { loadStripe } from '@stripe/stripe-js';
+import publicKey from '../../stripe';
+
+const stripePromise = loadStripe(publicKey);
 
 
 const Cart = props => {
+    //stripe info
+
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        // Check to see if this is a redirect back from Checkout
+        const query = new URLSearchParams(window.location.search);
+
+        if (query.get("success")) {
+            setMessage("Order placed! You will receive an email confirmation.");
+        }
+
+        if (query.get("canceled")) {
+            setMessage(
+                "Order canceled -- continue to shop around and checkout when you're ready."
+            );
+        }
+    }, []);
+
+    const handleClick = async (event) => {
+        const stripe = await stripePromise;
+
+        const session = await axios.post('/api/payment');
+
+        // const session = await response.json();
+
+        console.log(session)
+
+        const result = await stripe.redirectToCheckout({
+            sessionId: session.data.id,
+        });
+
+        if (result.error) {
+            console.log(result.error.message)
+        }
+    }
     const [cart, setCart] = useState([]);
     
 
@@ -60,7 +99,8 @@ const Cart = props => {
                     {items}
                     <hr />
                     <p>${subtotal.toFixed(2)}</p>
-                    <h4 onClick={checkUser} >Checkout</h4>
+                    <button id='checkout-button' roles='link' onClick={handleClick}>Checkout</button>
+                    {message}
                 </section>
             }
 
