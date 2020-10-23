@@ -33,12 +33,15 @@ module.exports = {
             quantity = +req.body.quantity,
             { cart } = req.session;
 
+        
+
         cart.forEach((item, i, arr) => {
             if (item.shirt.shirt_id === id) {
-                arr[i].quantity += quantity;
+              arr[i].quantity += quantity;  
             }
         });
-        res.status(200).send(cart);
+
+        res.sendStatus(200);
     },
     removeItem: (req, res) => {
         const id = +req.params.id,

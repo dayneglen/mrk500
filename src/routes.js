@@ -5,9 +5,10 @@ import Login from './Components/Auth/Login';
 import Register from './Components/Auth/Register';
 import ProductsPage from './Components/ProductsPage';
 import SingleProductPage from './Components/SingleProductPage';
-import Cart from './Components/Cart';
+import Cart from './Components/Checkout/Cart';
 import Account from './Components/Account';
 import AdminDashboard from './Components/Admin/AdminDashboard';
+import Checkout from './Components/Checkout/Checkout'
 
 export default (
     <Switch>
@@ -17,6 +18,7 @@ export default (
         <Route exact path = '/shirts' component={ProductsPage} />
         <Route path = '/shirts/:id' component={SingleProductPage} />
         <Route path = '/cart' component={Cart} />
+        <Route path='/checkout' component={Checkout} />
         <Route path = '/account' component={Account} />
         <Route path = '/admin/dashboard' component={AdminDashboard} />
     </Switch>

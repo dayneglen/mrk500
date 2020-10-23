@@ -16,6 +16,8 @@ const Login = props => {
         })
         .catch(_ => alert('Incorrect Password or Email'))
     }
+
+    console.log(props)
    
     return (
         <form>
