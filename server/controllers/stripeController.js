@@ -3,27 +3,36 @@ const {STRIPE_SECRET_KEY} = process.env,
 
 module.exports = {
     completePayment: async (req, res) => {
+        // Getting cart items ready for stripe payment
+        const cartItems = req.session.cart.map((item) => {
+            const { shirt } = item;
+            let lineItem = {
+                price_data: {
+                    currency: 'usd',
+                    product_data: {
+                        name: shirt.name,
+                        images: [shirt.img_url],
+                    },
+                    unit_amount: shirt.price * 100,
+                },
+                quantity: item.quantity,
+            }
+            return lineItem
+            
+        })
+
+        // Sending session for redirect to stripe for payment
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
-            line_items: [
-                {
-                    price_data: {
-                        currency: 'usd',
-                        product_data: {
-                            name: 'Stubborn Attachments',
-                            images: ['https://i.imgur.com/EHyR2nP.png'],
-                        },
-                        unit_amount: 2000,
-                    },
-                    quantity: 1,
-                },
-            ],
+            line_items: cartItems,
             mode: 'payment',
-            success_url: `https://localhost:3000?success=true`,
-            cancel_url: `https://localhost:3000?success=false`
+            success_url: `https://localhost:3000`,
+            cancel_url: `https://localhost:3000`,
+            shipping_address_collection: {
+                allowed_countries: ['US', 'CA']
+            },
         });
 
         res.send({ id: session.id})
-        
     }
 }

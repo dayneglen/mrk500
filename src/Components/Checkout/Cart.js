@@ -11,48 +11,33 @@ const stripePromise = loadStripe(publicKey);
 
 
 const Cart = props => {
-    //stripe info
-
-    const [message, setMessage] = useState('');
-
-    useEffect(() => {
-        // Check to see if this is a redirect back from Checkout
-        const query = new URLSearchParams(window.location.search);
-
-        if (query.get("success")) {
-            setMessage("Order placed! You will receive an email confirmation.");
-        }
-
-        if (query.get("canceled")) {
-            setMessage(
-                "Order canceled -- continue to shop around and checkout when you're ready."
-            );
-        }
-    }, []);
-
-    const handleClick = async (event) => {
-        const stripe = await stripePromise;
-
-        const session = await axios.post('/api/payment');
-
-        // const session = await response.json();
-
-        console.log(session)
-
-        const result = await stripe.redirectToCheckout({
-            sessionId: session.data.id,
-        });
-
-        if (result.error) {
-            console.log(result.error.message)
-        }
-    }
-    const [cart, setCart] = useState([]);
-    
-
     useEffect(() => {
         getCurrentCart();
     }, [])
+    const [cart, setCart] = useState([]);
+
+    // Function to handle checkout and send message for stripe payment
+    const handleCheckout = async () => {
+        const email = props.userReducer.user;
+        if (!email) {
+            alert('Please login to finish checkout');
+            props.history.push('/login')
+        } else {
+            const stripe = await stripePromise;
+
+            const session = await axios.post('/api/payment', {email});
+
+            // const session = await response.json();
+
+            const result = await stripe.redirectToCheckout({
+                sessionId: session.data.id,
+            });
+
+            if (result.error) {
+                console.log(result.error.message)
+            }
+        }  
+    }
 
     const getCurrentCart = () => {
         axios.get('/api/cart').then(res => {
@@ -73,20 +58,12 @@ const Cart = props => {
         }).catch(err => console.log(err))
     }
 
-    const checkUser = () => {
-        if(props.userReducer.user.email) {
-            props.history.push('/checkout')
-        } else {
-            alert('Please login to finish checkout');
-            props.history.push('/login')
-        }
-    }
-
     const subtotal = cart.reduce((acc, cur) => {
         return acc + (cur.quantity * cur.shirt.price)
     }, 0)
 
     const items = cart.map((item, i) => <CartItem key={i} item={item} handleQuantityChangeFn={handleQuantityChange} removeItemFn={removeItem}/>)
+
     return (
         <main>
             {cart.length === 0
@@ -99,11 +76,9 @@ const Cart = props => {
                     {items}
                     <hr />
                     <p>${subtotal.toFixed(2)}</p>
-                    <button id='checkout-button' roles='link' onClick={handleClick}>Checkout</button>
-                    {message}
+                    <button id='checkout-button' roles='link' onClick={handleCheckout}>Checkout</button>
                 </section>
             }
-
         </main>
     )
 

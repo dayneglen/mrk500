@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {ClipLoader} from 'react-spinners';
 import { connect } from 'react-redux';
-import { getCart } from '../redux/cartReducer';
+import { getCart } from '../../redux/cartReducer';
 import axios from 'axios';
 
 const SingleProductPage = props => {
