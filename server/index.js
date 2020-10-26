@@ -8,6 +8,7 @@ const express = require('express'),
       cartCtrl = require('./controllers/cartController'),
       orderCtrl = require('./controllers/orderController'),
       stripeCtrl = require('./controllers/stripeController'),
+      emailCtrl = require('./controllers/nodemailerController'),
       app = express();
 
 app.use(express.json());
@@ -52,6 +53,9 @@ app.get('api/order/:id', orderCtrl.getCustomerOrders);
 
 // Stripe Endpoint
 app.post('/api/payment', stripeCtrl.completePayment);
+
+// Nodemailer Endpoint
+app.post('/api/email', emailCtrl.sendContact);
 
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));
