@@ -1,0 +1,107 @@
+.products-container {
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 130px;
+    @include flex(center, space-evenly, row);
+    flex-wrap: wrap;
+}
+
+.shirt-display {
+    margin: 10px auto;
+    width:400px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    div {
+        border-radius: 10px 10px 0 0;
+    }
+    &:hover {
+        transform: translate(0, -3px);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+    }
+}
+
+ .shirt {
+        height: 400px;
+        width: 400px;
+    }
+
+.product-info {
+    background-color: #fff;
+    height: 75px;
+    margin-top: -3px;
+    width: 400px;
+    border-radius: 0 0 10px 10px;
+    @include flex(center, flex-start, column);
+    .product-info-container {
+        margin-left: 15px;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    a {
+        text-decoration: none;
+        color: $text;
+    }
+}
+
+.price {
+    color: $blue-green;
+}
+
+.single-product-container {
+    margin: 0 auto;
+    width: 80vw;
+    margin-top: 100px;
+    @include flex(center, center, column);
+    div {
+        border-radius: 10px;
+        height: 400px;
+        width: 400px;
+    }
+    h1 {
+        font-size: 1.8rem;
+        margin: 5px;
+        font-weight: bold;
+        color: $blue-green;
+    }
+    h3 {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+}
+
+.size-container {
+    h5 {
+        font-size: 1.5rem;
+        margin: 5px 0;
+        align-self: flex-start;
+    }
+    @include flex(center, center, column);
+}
+
+.sizes {
+    @include flex(center, center, row);
+    li {
+        margin: 10px;
+        font-size: 1.2rem;
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        line-height: 40px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.length {
+    li {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    }
+}

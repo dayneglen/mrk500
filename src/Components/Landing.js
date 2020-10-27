@@ -5,8 +5,7 @@ const Landing = props => {
     return (
         <div>
             <div className='welcome-img'></div>
-            <Contact />
-            
+            <Contact /> 
         </div>
     )
 }

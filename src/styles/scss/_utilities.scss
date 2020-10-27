@@ -1,4 +1,39 @@
-$background-color: #000;
-$text: #fff;
+$background-color: #F6F6F6;
+$menu-color: #3b3b3b;
+$text: #000;
 $blue-green: #38AAA9;
 $red: #EB272A;
+$orange: #ffa154;
+$yellow: #ffc654;
+
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+// Buttons
+
+.btn {
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.checkout-btn {
+    background-color: $blue-green;
+    width: 400px;
+    height: 50px;
+    color: #fff;
+    font-size: 1.4rem;
+    margin-top: 15px;
+}

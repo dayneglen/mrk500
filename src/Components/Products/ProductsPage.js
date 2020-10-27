@@ -13,7 +13,7 @@ const ProductsPage = props => {
 
     const products = productList.map((product, i) =>  <Product key={i} product={product} />);
     return (
-        <main>
+        <main className='products-container'>
             {products}
         </main>
     )

@@ -1,7 +1,85 @@
-nav {
-    a {
+header {
+    width: 100vw;
+    height: 10vh;
+    @include flex(space-between, center, row);
+    position: fixed;
+    top: 0px;
+    background-color: $menu-color;
+    z-index: 1;
+     a {
         text-decoration: none;
-        color: $text;
+        color: #fff;
         font-size: 1.5rem;
+        margin: 0 25px;
     }
+}
+
+.logo {
+    width: 150px;
+    height: 40px;
+    margin-left: 30px;
+}
+
+.navbar-menu {
+    display: none;
+    margin-right: 30px;
+    position: relative;
+    span {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+    }
+   
+}
+
+.navbar-icon {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-right: 40px;
+}
+
+.menu {
+   position: fixed;
+   right: -100vw;
+   top: 10vh;
+   height: 100vh;
+   width: 100vw;
+   background-color: $menu-color;
+   transition: 1.5s;
+   @include flex(flex-start, center, column);
+   a {
+       font-size: 2rem;
+       margin: 40px;
+   }
+   hr {
+       width: 100vw;
+   }
+   span {
+    position: absolute;
+    top: 360px;
+    left: 360px;
+   }
+}
+
+.cart-quantity {
+     color: #fff;
+    background-color: $blue-green;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.slide {
+    right: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-menu {
+        display: flex;  
+    }
+    .navbar-icon {
+        display: none;
+    }
+    
 }

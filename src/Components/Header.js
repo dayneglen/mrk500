@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser } from '../redux/userReducer';
 import axios from 'axios';
 
 
 const Header = props => {
-    const [cartQuantity, setQuantity] = useState(0);
+    const [cartQuantity, setQuantity] = useState(0),
+          [menu, setMenu] = useState(false);
 
     useEffect(() => {
         axios.get('/auth/user').then(res => {
@@ -16,12 +17,19 @@ const Header = props => {
 
     useEffect(() => {
         setQuantity(props.cartReducer.cart.length)
-    }, [props.cartReducer.cart])
+    }, [props.cartReducer.cart]);
 
+    useEffect(() => {
+        setMenu(false);
+    }, [props.location.pathname])
 
     return (
         <header>
-            <nav>
+            <Link to='/' >
+                <img className='logo' src='https://mrk500.s3-us-west-1.amazonaws.com/Logo.png' alt='Mrk500 Logo' />
+            </Link>
+            <div className='navbar-icon' onClick={() => setMenu(!menu)}>&#9776;</div>
+            <nav className='navbar-menu'>
                 {props.userReducer.user.is_admin
                     ? <Link to='/add'>Add Product</Link>
                     : null}
@@ -33,10 +41,35 @@ const Header = props => {
                 <Link to='/shirts'>Products</Link>
                 {cartQuantity === 0
                     ? null
-                    : <span>{cartQuantity}</span>}
+                    : <span className='cart-quantity'>{cartQuantity}</span>}
 
                 <Link to='/cart'>Cart</Link>
             </nav>
+
+            {/* SLide Out Menu */}
+            <div className={menu ? 'menu slide' : 'menu'}>
+                <hr/>
+                {props.userReducer.user.is_admin
+                    ? <section>
+                        <Link to='/add'>Add Product</Link>
+                        <hr />
+                    </section>
+                    : null}
+               
+                {props.userReducer.user.email
+                    ? props.userReducer.user.is_admin
+                        ? <Link to='/admin/dashboard'>Dashboard</Link>
+                        : <Link to='/account'>Account</Link>
+                    : <Link to='/login'>Login</Link>}
+                <hr/>
+                <Link to='/shirts'>Products</Link>
+                <hr/>
+                {cartQuantity === 0
+                    ? null
+                    : <span className='cart-quantity'>{cartQuantity}</span>}
+                <Link to='/cart'>Cart</Link>
+                <hr />
+            </div>
 
         </header>
     )
@@ -49,4 +82,4 @@ const mapStateToProps = reduxState => {
     }
 }
 
-export default connect(mapStateToProps, { getUser })(Header);
+export default withRouter(connect(mapStateToProps, { getUser })(Header));

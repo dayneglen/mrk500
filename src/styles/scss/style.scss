@@ -4,16 +4,33 @@
     box-sizing: border-box;
 }
 
+
 body {
     background-color: $background-color;
     color: $text;
+    font-family: 'Raleway', sans-serif;
 }
+
 
 @import 'Header';
 @import 'Landing';
+@import 'Login-Register';
+@import 'products';
 
-.shirt {
-    height: 200px;
-    width: 200px;
+footer {
+    // position: absolute;
+    // bottom: 0;
+    width: 100%;
+    height: 8vh;
+    background-color: $menu-color;
+    color: #fff;
+    padding-top: 10px;
+    hr {
+        width: 80vw;
+    }
+    p {
+        text-align: center;
+    }
 }
 
+@import 'media-queries';

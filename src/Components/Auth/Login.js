@@ -16,19 +16,17 @@ const Login = props => {
         })
         .catch(_ => alert('Incorrect Password or Email'))
     }
-
-    console.log(props)
    
     return (
-        <form>
-            <h1>Login</h1>
-            <label htmlFor='email'>Email</label>
-            <input value={email} type='text' id='email' onChange={e => setEmail(e.target.value)}></input>
-            <label htmlFor='password'>Password</label>
-            <input value={password} type='password' id='password' onChange={e => setPassword(e.target.value)}></input>
-            <button onClick={handleLogin}>Login</button>
-            <p>Don't have an account? <Link to='/register'>Create one</Link></p>
-        </form>
+        <section className='login-container'>
+            <form className='login-register'>
+                <h1>Login</h1>
+                <input placeholder='Email' value={email} type='text' id='email' onChange={e => setEmail(e.target.value)}></input>
+                <input placeholder='Password' value={password} type='password' id='password' onChange={e => setPassword(e.target.value)}></input>
+                <button onClick={handleLogin}>Login</button>
+                <p>Don't have an account? <em><Link to='/register'>Create one</Link></em></p>
+            </form>
+        </section>
     )
 }
 
