@@ -10,6 +10,7 @@ const Header = props => {
           [menu, setMenu] = useState(false);
 
     useEffect(() => {
+        setQuantity(props.cartReducer.cart.length)
         axios.get('/auth/user').then(res => {
             props.getUser(res.data)
         }).catch(err => console.log(err))
@@ -30,9 +31,6 @@ const Header = props => {
             </Link>
             <div className='navbar-icon' onClick={() => setMenu(!menu)}>&#9776;</div>
             <nav className='navbar-menu'>
-                {props.userReducer.user.is_admin
-                    ? <Link to='/add'>Add Product</Link>
-                    : null}
                 {props.userReducer.user.email
                     ? props.userReducer.user.is_admin
                         ? <Link to='/admin/dashboard'>Dashboard</Link>

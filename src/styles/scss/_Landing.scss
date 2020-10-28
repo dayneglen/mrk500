@@ -1,5 +1,120 @@
-.welcome-img {
+.welcome-container {
     background-image: url('https://mrk500.s3-us-west-1.amazonaws.com/Website+Main.jpg');
     height: 100vh;
+    width:100vw;
     background-size: cover;
+    position: relative;
+}
+
+.welcome-message {
+    height: 250px;
+    position: absolute;
+    top: 225px;
+    left: 100px;
+    color: #fff;
+    @include flex(space-evenly, flex-start, column);
+    h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    button {
+        height: 40px;
+        width: 350px;
+        font-size: 1.5rem;
+    }
+}
+
+.why-buy-container {
+    width: 100vw;;
+}
+
+.why-buy-wrapper {
+    width: 80vw;
+    margin: 50px auto;
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 50px;
+    }
+}
+
+.why-buy-flex {
+    @include flex(center, flex-start, row);
+    height: 600px;
+}
+
+.why-buy {
+    width: 500px;
+    margin: 20px;
+    div {
+        height: 300px;
+        width: 300px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-left: 30px;
+        background-position: center;
+        background-size: cover;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 1.1em;
+        line-height: 1.7rem;
+    }
+}
+
+.shirt-example {
+    background-image: url('https://mrk500.s3-us-west-1.amazonaws.com/Shirt+9.jpg');
+    
+}
+
+.man-shirt-example {
+    background-image: url('https://mrk500.s3-us-west-1.amazonaws.com/June+2019+Model.jpg');
+}
+
+.cotton-pic {
+    background-image: url('https://mrk500.s3-us-west-1.amazonaws.com/textile-1824172_1920.jpg');
+}
+
+.contact-us-container {
+    background-color: $menu-color;
+    height: 500px;
+    padding-top: 50px;
+}
+
+.contact-us {
+    @include flex(space-evenly, center, column);
+    height: 400px;
+    width: 80vw;
+    margin: 0 auto;
+    
+    input {
+        background: none;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #fff;
+        width: 400px;
+        font-size: 1em;
+        color: #fff;
+        text-align: center;
+    }
+    textarea {
+        background-color: $menu-color;
+        border: 1px solid white;
+        width: 400px;
+        height: 150px;
+        color: #fff;
+        margin-top: 10px;
+        text-align: center;
+    }
+    button {
+        font-size: 1.3em;
+        width: 200px;
+        margin-top: 20px;
+    }
 }

@@ -24,16 +24,24 @@ $yellow: #ffc654;
     outline: none;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.blue-green-btn {
+    background-color: $blue-green;
+    color: #fff;
     &:hover {
-        cursor: pointer;
+        background-color: darken($blue-green, 10%);
+        transition: 0.5s;
     }
 }
 
-.checkout-btn {
-    background-color: $blue-green;
-    width: 400px;
-    height: 50px;
-    color: #fff;
-    font-size: 1.4rem;
-    margin-top: 15px;
+.dark-grey-btn {
+    background-color: $menu-color;
+    color: #fff; 
+    &:hover {
+        background-color: lighten($menu-color, 10%);
+        transition: 0.5s;
+    } 
 }

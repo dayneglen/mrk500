@@ -1,0 +1,110 @@
+.main-dashboard {
+    margin-top: 100px;
+}
+
+.admin-menu-container {
+    position: fixed;
+    left: 0;
+    top: 10vh;
+    width: 10vw;
+    height: 90vh;
+    background-color: rgb(100, 100, 100);
+    z-index: 0;
+}
+
+.admin-btn-container {
+    height: 30vh;
+    @include flex(space-between, flex-start , column);
+    button {
+        background-color: transparent;
+        width: 100%;
+        height: 75px;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        border: none;
+        border-top: 1px solid black;
+        &:hover {
+            background-color: rgb(212, 211, 211);
+            color: #000;
+        }
+    }
+}
+
+.manage-products-page {
+    margin: 10px 250px;
+    @include flex(flex-start, center, row);
+    width: 900px;
+}
+
+.admin-id-img {
+    h2 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    div {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+.admin-product-info-container {
+    margin-left: 50px;
+    height: 200px;
+    @include flex(space-evenly, flex-start, column);
+    h3 {
+        font-size: 1rem;
+    }
+    button {
+        background-color: $blue-green;
+        width: 100px;
+        height: 30px;
+        color: white;
+    }
+    span {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+}
+
+.edit-product-container {
+    @include flex(space-evenly, flex-start, column);
+    margin-left: 50px;
+    height: 200px;
+    width: 500px;
+    input {
+        width: 400px;
+    }
+    button {
+        background-color: $blue-green;
+        width: 150px;
+        height: 30px;
+        color: white;
+    }
+}
+
+.add-form{
+    margin: 125px 200px;
+    height: 400px;
+    @include flex(space-evenly, flex-start, column);
+    h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    div {
+        height: 200px;
+        width: 200px;
+    }
+    input {
+        width: 300px;
+    }
+    button {
+        background-color: $blue-green;
+        width: 100px;
+        height: 30px;
+        color: white;
+    }
+}
+
+

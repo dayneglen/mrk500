@@ -15,16 +15,19 @@ const Contact = props => {
 
     const sendContactEmail = () => {
         axios.post('/api/email', { name: emailInputs.name, email: emailInputs.email, message: emailInputs.message }).then(_ => {
-            setEmailInput({ ...emailInputs, email: '', name: '', message: '' })
+            setEmailInput({email: '', name: '', message: '' })
+            alert('Email Sent!')
         }).catch(err => console.log(err))
     }
 
     return (
-        <section className='contact-us'>
-            <input value={emailInputs.name} name='name' placeholder='Your name' onChange={e => handleEmailChange(e)} />
-            <input value={emailInputs.email} name='email' placeholder='Your email' onChange={e => handleEmailChange(e)} />
-            <input value={emailInputs.message} name='message' placeholder='Your message' onChange={e => handleEmailChange(e)} />
-            <button onClick={sendContactEmail}>Send Email</button>
+        <section className='contact-us-container'>
+            <section className='contact-us'>
+                <input value={emailInputs.name} name='name' placeholder='Your name' onChange={e => handleEmailChange(e)} />
+                <input value={emailInputs.email} name='email' placeholder='Your email' onChange={e => handleEmailChange(e)} />
+                <textarea value={emailInputs.message} name='message' placeholder='Your message' onChange={e => handleEmailChange(e)} />
+                <button className='btn blue-green-btn' onClick={sendContactEmail}>Send Email</button>
+            </section>
         </section>
     )
 }

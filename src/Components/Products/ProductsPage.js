@@ -11,7 +11,11 @@ const ProductsPage = props => {
         }).catch(err => console.log(err))
     }, [])
 
-    const products = productList.map((product, i) =>  <Product key={i} product={product} />);
+    const products = productList.map((product, i) =>  {
+        return product.show_product
+            ? <Product key={i} product={product} />
+            : null
+    });
     return (
         <main className='products-container'>
             {products}
@@ -20,3 +24,4 @@ const ProductsPage = props => {
 }
 
 export default ProductsPage;
+

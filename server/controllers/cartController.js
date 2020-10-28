@@ -33,8 +33,11 @@ module.exports = {
             quantity = +req.body.quantity,
             { cart } = req.session;
 
+        const foundItem = cart.find(item => item.shirt.shirt_id === id)
+        if (quantity === -1 && foundItem.quantity <= 1) {
+            return res.sendStatus(400);
+        }
         
-
         cart.forEach((item, i, arr) => {
             if (item.shirt.shirt_id === id) {
               arr[i].quantity += quantity;  
@@ -49,6 +52,7 @@ module.exports = {
         
         let foundIndex = cart.findIndex(currentShirt => currentShirt.shirt.shirt_id === id);
         cart.splice(foundIndex, 1);
+        console.log(cart)
         res.status(200).send(cart);
     }
 }

@@ -6,17 +6,16 @@ import AddProduct from './AddProduct';
 import { getUser } from '../../redux/userReducer';
 
 const AdminDashboard = props => {
-
-
     const [productList, setProductList] = useState([]),
-          [pageView, setPageView] = useState('one');
-
-
-   // need a useEffect to check if user is an admin or not
+          [pageView, setPageView] = useState('one'),
+          [activePage, setActivePage] = useState('one');
 
     useEffect(() => {
+        if (!props.userReducer.user.is_admin) {
+            props.history.push('/');
+        }
         getProductList();
-    }, [])
+    }, [pageView])
 
     const handleLogout = () => {
         axios.get('/auth/logout').then(_ => {
@@ -38,9 +37,14 @@ const AdminDashboard = props => {
     }
 
     const editProduct = (id, price, name, img_url) => {
-        axios.put(`/api/product/${id}`, {price, name, img_url}).then(_ => {
+        axios.put(`/api/product/${id}`, {name, price, img_url}).then(_ => {
             getProductList();
         }).catch(err => console.log(err));
+    }
+
+    const handlePageView = currentPageView => {
+        setPageView(currentPageView);
+        setActivePage(currentPageView);
     }
 
     const currentProducts = productList.map((product, i) => {
@@ -57,16 +61,26 @@ const AdminDashboard = props => {
 
     const page = {
         one: currentProducts,
-        two: <AddProduct />,
+        two: <AddProduct handlePageViewFn={handlePageView} />,
         three: pastProducts
     }
 
+    const activePageStyle = {
+        backgroundColor: 'rgb(212, 211, 211)',
+        color: '#000'
+    }
+
     return (
-        <main>
-            <button onClick={handleLogout}>Logout</button>
-            <button onClick={() => setPageView('one')}>Manage Current Products</button>
-            <button onClick={() => setPageView('two')}>Add Product</button>
-            <button onClick={() => setPageView('three')}>Past Products</button>
+        <main className='main-dashboard'>
+            <section className='admin-menu-container'>
+                <nav className='admin-btn-container'>
+                    <button style={activePage === 'one' ? activePageStyle : null} onClick={() => handlePageView('one')}>Manage Current Products</button>
+                    <button style={activePage === 'two' ? activePageStyle : null} onClick={() => handlePageView('two')}>Add Product</button>
+                    <button style={activePage === 'three' ? activePageStyle : null} onClick={() => handlePageView('three')}>Past Products</button>
+                    <button onClick={handleLogout}>Logout</button>
+                </nav>  
+            </section>
+            
            {page[pageView]}
         </main>
     )

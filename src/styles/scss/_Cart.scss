@@ -1,0 +1,135 @@
+.empty-cart {
+    width: 600px;
+    margin: 300px auto;
+    margin-top: 300px;
+    @include flex(center, center, column);
+    p {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+    }
+    a {
+        text-decoration: none;
+        color: #ffffff;
+        background-color: $blue-green;
+        line-height: 50px;
+        text-align: center;
+        height: 50px;
+        width: 200px;
+        border-radius: 5px;
+        &:hover {
+            background-color: darken($blue-green, 10%);
+        }
+    }
+}
+
+.cart-container {
+    width: 80vw;
+    margin: 150px auto;
+    @include flex(space-between, center, row);
+}
+
+.cart {
+    width: 600px;
+}
+
+.cart-item {
+    @include flex(flex-start, center, row);
+    margin: 20px 0;
+    div {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.cart-product-info {
+    width: 450px;
+    height: 150px;
+    margin-left: 15px;
+    @include flex(space-between, center, row);
+    h2 {
+        font-size: 1.7rem;
+    }
+}
+
+.cart-info-container {
+    
+    @include flex(space-evenly, center, row);
+   
+}
+
+.cart-info {
+    height: 150px;
+    width: 150px;
+    @include flex(space-evenly, center, column);
+    h4 {
+        font-size: 1.3rem;
+    }
+    p {
+        font-size: 1.1rem;
+    }
+}
+
+.quantity-container {
+    margin-left: 75px;
+    button {
+        background-color: $background-color;
+        outline: none;
+        font-size: 1.3rem;
+        border: none;
+        height: 40px;
+        cursor: pointer;
+        &:hover {
+            background-color: $menu-color;
+            color: #fff;
+        }
+    }
+    .quantity {
+        font-size: 1.2rem;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+.quantity-row {
+    @include flex(center, center, row);
+    border: 1px solid black;
+}
+
+.remove {
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {
+        color: $red;
+    }
+}
+
+.checkout {
+    position: fixed;
+    top: 150px;
+    right: 120px;
+    width: 500px;
+    height: 300px;
+    @include flex(space-evenly, flex-start, column);
+    border: 1px solid $menu-color;
+    padding: 15px;
+    button {
+        width: 100%;
+        height: 40px;
+        margin-top: 20px;
+        font-size: 1.3rem;
+    }
+    h2 {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin: 0 auto;
+    }
+}
+
+.order-summary {
+    @include flex(space-between, center, row);
+    width: 100%;
+}
+

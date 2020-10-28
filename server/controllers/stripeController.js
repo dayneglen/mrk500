@@ -4,7 +4,8 @@ const {STRIPE_SECRET_KEY} = process.env,
 module.exports = {
     completePayment: async (req, res) => {
         // Getting cart items ready for stripe payment
-        const cartItems = req.session.cart.map((item) => {
+        const {cart} = req.body;
+        const cartItems =cart.map((item) => {
             const { shirt } = item;
             let lineItem = {
                 price_data: {

@@ -29,6 +29,7 @@ module.exports = {
                 if(err) {
                     console.log(err)
                 } else {
+                    console.log('hit')
                     res.status(200).send(info);
                 }
             })

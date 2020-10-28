@@ -10,7 +10,12 @@ header {
         text-decoration: none;
         color: #fff;
         font-size: 1.5rem;
-        margin: 0 25px;
+        margin: 0px 25px;
+        padding-bottom: 5px;
+        &:hover {
+            color: $blue-green;
+            transition: 0.5s;
+        }
     }
 }
 
@@ -22,7 +27,7 @@ header {
 
 .navbar-menu {
     display: none;
-    margin-right: 30px;
+    margin-right: 50px;
     position: relative;
     span {
         position: absolute;

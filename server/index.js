@@ -48,8 +48,8 @@ app.delete('/api/cart/:id', cartCtrl.removeItem);
 
 // Order endpoints
 app.post('/api/order/:id', orderCtrl.placeOrder);
-app.get('/api/orders', orderCtrl.getOrders);
-app.get('api/order/:id', orderCtrl.getCustomerOrders);
+app.get('/api/order/:id', orderCtrl.getOrder);
+app.get('/api/orders/:id', orderCtrl.getCustomerOrders);
 
 // Stripe Endpoint
 app.post('/api/payment', stripeCtrl.completePayment);

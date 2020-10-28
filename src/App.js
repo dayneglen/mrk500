@@ -7,7 +7,7 @@ import './styles/scss/style.css';
 
 function App() {
   return (
-    <div>
+    <div className='page-container'>
       <Header />
       {routes}
       <Footer />

@@ -72,7 +72,7 @@ const SingleProductPage = props => {
                             <li style={activeLength === 'Regular' ? selectedShirt : null} onClick={e => handleSize(e)}>Regular</li>
                             <li style={activeLength === 'Tall' ? selectedShirt : null} onClick={e => handleSize(e)}>Tall</li>
                         </ul>
-                        <button className='btn checkout-btn' onClick={handleCheckout}>Add to Cart</button>
+                        <button className='btn blue-green-btn'  onClick={handleCheckout}>Add to Cart</button>
                     </section>
                    
                 </section>

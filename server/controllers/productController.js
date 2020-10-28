@@ -13,8 +13,6 @@ module.exports = {
         db.products.get_product(id).then(product => {
             res.status(200).send(product)
         }).catch(err => console.log(err));
-        
-
     },
     addProduct: async (req, res) => {
         const { name, price, img_url } = req.body,
@@ -32,7 +30,6 @@ module.exports = {
         const id = +req.params.id,
               { name, price, img_url } = req.body,
               db = req.app.get('db');
-
         db.products.update_product({name, price, img_url, id}).then(product => {
             res.sendStatus(200);
         }).catch(err => console.log(err));

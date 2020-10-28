@@ -23,17 +23,10 @@
          margin: 15px 0;
      }
      button {
-         background-color: $red;
-         outline: none;
-         border: none;
-         color: #fff;
          width: 150px;
          height: 25px;
          margin: 25px;
          font-size: 1.1rem;
-         &:hover {
-             cursor: pointer;
-         }
      }
      a {
          text-decoration: none;
