@@ -52,7 +52,6 @@ module.exports = {
         
         let foundIndex = cart.findIndex(currentShirt => currentShirt.shirt.shirt_id === id);
         cart.splice(foundIndex, 1);
-        console.log(cart)
         res.status(200).send(cart);
     }
 }

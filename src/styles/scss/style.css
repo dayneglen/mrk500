@@ -27,7 +27,7 @@
 }
 
 .dark-grey-btn:hover {
-  background-color: #555555;
+  background-color: #080808;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -335,6 +335,12 @@ header a:hover {
   font-size: 1.3em;
   width: 200px;
   margin-top: 20px;
+}
+
+.contact-us h1 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .login-container {
@@ -1016,6 +1022,149 @@ header a:hover {
   width: 100px;
   height: 30px;
   color: white;
+}
+
+.account-container {
+  margin: 100px 200px;
+}
+
+.account-container a {
+  text-decoration: none;
+  color: #000;
+}
+
+.account-container button {
+  position: fixed;
+  top: 475px;
+  left: 400px;
+  width: 100px;
+  height: 30px;
+  font-size: 1.3rem;
+}
+
+.order-container {
+  margin-left: 500px;
+}
+
+.customer-order {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 500px;
+  height: 50px;
+  -webkit-box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 10px;
+  letter-spacing: 1.5px;
+}
+
+.customer-order:hover {
+  -webkit-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.order-info-container {
+  margin-top: 10vh;
+  position: realitve;
+}
+
+.order-info-container button {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  width: 150px;
+  height: 30px;
+  border-radius: 15px 0 0 15px;
+}
+
+.order-info {
+  width: 80vw;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.order-info-header {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 100px;
+}
+
+.order-shirt-info {
+  margin: 50px;
+  height: 300px;
+  width: 200px;
+}
+
+.order-shirt-info div {
+  height: 200px;
+  width: 200px;
+}
+
+.order-shirt-info h1 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.order-shirt-info h2 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.account-details {
+  width: 300px;
+  height: 250px;
+  position: fixed;
+  top: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.account-details h1 {
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.account-details h2 {
+  font-size: 1.3rem;
 }
 
 footer {

@@ -48,7 +48,7 @@ app.delete('/api/cart/:id', cartCtrl.removeItem);
 
 // Order endpoints
 app.post('/api/order/:id', orderCtrl.placeOrder);
-app.get('/api/order/:id', orderCtrl.getOrder);
+app.post('/api/customer/order/:id', orderCtrl.getOrder);
 app.get('/api/orders/:id', orderCtrl.getCustomerOrders);
 
 // Stripe Endpoint

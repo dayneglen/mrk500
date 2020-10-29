@@ -7,6 +7,9 @@ module.exports = {
         const {cart} = req.body;
         const cartItems =cart.map((item) => {
             const { shirt } = item;
+            const shirtPrice = shirt.price * 100;
+            const taxPrice = shirtPrice * 0.0727;
+            const total = Math.ceil(shirtPrice + taxPrice);
             let lineItem = {
                 price_data: {
                     currency: 'usd',
@@ -14,7 +17,7 @@ module.exports = {
                         name: shirt.name,
                         images: [shirt.img_url],
                     },
-                    unit_amount: shirt.price * 100,
+                    unit_amount: total,
                 },
                 quantity: item.quantity,
             }
@@ -27,8 +30,8 @@ module.exports = {
             payment_method_types: ['card'],
             line_items: cartItems,
             mode: 'payment',
-            success_url: `https://www.google.com`,
-            cancel_url: `https://localhost:3000`,
+            success_url: `http://localhost:3000`,
+            cancel_url: `http://localhost:3000`,
             shipping_address_collection: {
                 allowed_countries: ['US', 'CA']
             },

@@ -1,0 +1,95 @@
+.account-container {
+    margin: 100px 200px;
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    button {
+        position: fixed;
+        top: 475px;
+        left: 400px;
+        width: 100px;
+        height: 30px;
+        font-size: 1.3rem;
+    }
+}
+
+.order-container {
+    margin-left: 500px;
+}
+
+.customer-order {
+    @include flex(space-between, center, row);
+    width: 500px;
+    height: 50px;
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.2);
+    margin-top: 15px;
+    border-radius: 5px;
+    padding: 10px;
+    letter-spacing: 1.5px;
+    &:hover {
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    }
+
+}
+
+.order-info-container {
+    margin-top: 10vh;
+    position: realitve;
+    button {
+        position: absolute;
+        top: 10px;
+        left: 30px;
+        width: 150px;
+        height: 30px;
+        border-radius: 15px 0 0 15px;
+    }
+}
+
+.order-info {
+    width: 80vw;
+    margin: 0 auto;
+    @include flex(center, center, row);
+    flex-wrap: wrap;
+}
+
+.order-info-header {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 100px;
+}
+
+.order-shirt-info {
+    margin: 50px;
+    height: 300px;
+    width: 200px;
+    div {
+        height: 200px;
+        width: 200px;
+    }
+    h1 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+    h2 {
+        font-size: 1.1rem;
+        margin: 10px 0;
+    }
+}
+
+.account-details {
+    width: 300px;
+    height: 250px;
+    position: fixed;
+    top: 200px;
+    @include flex(space-evenly, flex-start, column);
+    padding: 20px;
+    border: 1px solid black;
+    h1 {
+        font-size: 1.5rem;
+        text-decoration: underline;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+}

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { getUser } from '../redux/userReducer';
+import { getUser } from '../../redux/userReducer';
 import CustomerOrder from './CustomerOrder';
 
 
@@ -12,7 +12,6 @@ const Account = props => {
         }
     }, []);
 
-
     const handleLogout = () => {
         axios.get('/auth/logout').then(_ => {
             props.getUser({})
@@ -22,18 +21,25 @@ const Account = props => {
 
 
     const orders = props.orderReducer.orders.map((order, i) => {
-        axios.get(`/api/order/${order.order_id}`).then(res => {
-            console.log('hit')
-            return <CustomerOrder key={i} order={res.data} />
-        }).catch(err => console.log(err));
-        console.log('hittt')
-        return null;
+        return (
+              <CustomerOrder order={order} key={i} />
+        )
     })
 
+    const {first_name, last_name, email} = props.userReducer.user;
+
     return (
-        <main>
-            <button onClick={handleLogout}>Logout</button>
-            {orders}
+        <main className='account-container'>
+            <button className='btn blue-green-btn'onClick={handleLogout}>Logout</button>
+            <section className='account-details'>
+                <h1>Account Details</h1>
+                <h2>{first_name} {last_name}</h2>
+                <h2>{email}</h2>
+            </section>
+            <section className='order-container'>
+                {orders}
+            </section>
+            
         </main>
     )
 }

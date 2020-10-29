@@ -19,14 +19,14 @@ const Landing = props => {
                     <h1>What Makes Our Shirts So Good?</h1>
                     <section className='why-buy-flex'>
                         <section className='why-buy'>
-                            <div className='cotton-pic'></div>
-                            <h2>COMBED AND RING-SPUN COTTON!</h2>
-                            <p>MRK500 shirts are made from 100% combed and ring-spung cotton. MRK500 shirts feel soft and light, with just the right amount of stretch and the best durability. Cotton is the de-facto standard for giving structure and comfort to awesome shirts. MRK500 shirts have the perfect blend to give you the best possible shirt</p>
-                        </section>
-                        <section className='why-buy'>
                             <div className='man-shirt-example'></div>
                             <h2>MORDERN FIT</h2>
                             <p>MRK500 shirts are made to comfortably fit most body shapes and sizes. Our fit is slim-ish, and a tad longer than other shirts to provide amazing comfort and confidence in your new look.</p>
+                        </section>
+                        <section className='why-buy'>
+                            <div className='cotton-pic'></div>
+                            <h2>COMBED AND RING-SPUN COTTON!</h2>
+                            <p>MRK500 shirts are made from 100% combed and ring-spung cotton. MRK500 shirts feel soft and light, with just the right amount of stretch and the best durability. Cotton is the de-facto standard for giving structure and comfort to awesome shirts. MRK500 shirts have the perfect blend to give you the best possible shirt.</p>
                         </section>
                         <section className='why-buy'>
                             <div className='shirt-example'></div>

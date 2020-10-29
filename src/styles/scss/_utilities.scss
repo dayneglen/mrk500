@@ -41,7 +41,7 @@ $yellow: #ffc654;
     background-color: $menu-color;
     color: #fff; 
     &:hover {
-        background-color: lighten($menu-color, 10%);
+        background-color: darken($menu-color, 20%);
         transition: 0.5s;
     } 
 }

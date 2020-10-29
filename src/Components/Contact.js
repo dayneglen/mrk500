@@ -23,6 +23,7 @@ const Contact = props => {
     return (
         <section className='contact-us-container'>
             <section className='contact-us'>
+                <h1>Contact Us</h1>
                 <input value={emailInputs.name} name='name' placeholder='Your name' onChange={e => handleEmailChange(e)} />
                 <input value={emailInputs.email} name='email' placeholder='Your email' onChange={e => handleEmailChange(e)} />
                 <textarea value={emailInputs.message} name='message' placeholder='Your message' onChange={e => handleEmailChange(e)} />

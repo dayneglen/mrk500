@@ -27,7 +27,7 @@
 }
 
 .why-buy-container {
-    width: 100vw;;
+    width: 100vw;
 }
 
 .why-buy-wrapper {
@@ -116,5 +116,10 @@
         font-size: 1.3em;
         width: 200px;
         margin-top: 20px;
+    }
+    h1 {
+        font-size: 2rem;
+        color: #fff;
+        margin-bottom: 20px;
     }
 }

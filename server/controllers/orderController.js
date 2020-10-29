@@ -30,7 +30,7 @@ module.exports = {
     },
     getOrder: (req, res) => {
         const userId = +req.params.id,
-              orderId = req.body.order_id,
+              {orderId} = req.body,
               db = req.app.get('db');
 
         db.orders.get_order(userId, orderId).then(products => {
