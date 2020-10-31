@@ -29,10 +29,10 @@ module.exports = {
                 if(err) {
                     console.log(err)
                 } else {
-                    console.log('hit')
                     res.status(200).send(info);
                 }
-            })
+            });
+            res.sendStatus(200);
         } catch(err) {
             res.status(500).send(err)
         }

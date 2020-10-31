@@ -36,6 +36,13 @@ const AdminDashboard = props => {
         }).catch(err => console.log(err))
     }
 
+    const returnProduct = id => {
+        axios.put(`/api/product/add/${id}`).then(() => {
+            setPageView('one');
+            setActivePage('one');
+        }).catch(err => console.log(err))
+    }
+
     const editProduct = (id, price, name, img_url) => {
         axios.put(`/api/product/${id}`, {name, price, img_url}).then(_ => {
             getProductList();
@@ -56,7 +63,7 @@ const AdminDashboard = props => {
     const pastProducts = productList.map((product, i) => {
         return product.show_product
             ? null
-            : <AdminProductView key={i} product={product} removeProductFn={removeProduct} />
+            : <AdminProductView key={i} product={product} returnProductFn={returnProduct}removeProductFn={removeProduct} />
     });
 
     const page = {

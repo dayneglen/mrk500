@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { getUser } from '../../redux/userReducer';
+import { getOrders } from '../../redux/orderReducer';
 import CustomerOrder from './CustomerOrder';
 
 
@@ -10,6 +11,13 @@ const Account = props => {
         if (!props.userReducer.user.email) {
             props.history.push('/');
         }
+        
+    }, []);
+
+    useEffect(() => {
+        axios.get(`/api/orders/${props.userReducer.user.user_id}`).then(res => {
+            props.getOrders(res.data);
+        }).catch(err => console.log(err));
     }, []);
 
     const handleLogout = () => {
@@ -51,5 +59,5 @@ const mapStateToProps = reduxState => {
     }
 }
 
-export default connect(mapStateToProps, {getUser})(Account);
+export default connect(mapStateToProps, {getUser, getOrders})(Account);
 

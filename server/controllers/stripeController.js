@@ -30,7 +30,7 @@ module.exports = {
             payment_method_types: ['card'],
             line_items: cartItems,
             mode: 'payment',
-            success_url: `http://localhost:3000`,
+            success_url: `http://localhost:3000/#/checkout/success`,
             cancel_url: `http://localhost:3000`,
             shipping_address_collection: {
                 allowed_countries: ['US', 'CA']

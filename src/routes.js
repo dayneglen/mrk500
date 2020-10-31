@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Landing from './Components/Landing';
+import Landing from './Components/LandingPage/Landing';
 import Login from './Components/Auth/Login';
 import Register from './Components/Auth/Register';
 import ProductsPage from './Components/Products/ProductsPage';
@@ -9,6 +9,7 @@ import Cart from './Components/Checkout/Cart';
 import Account from './Components/CustomerAccount/Account';
 import AdminDashboard from './Components/Admin/AdminDashboard';
 import CustomerOrderPage from './Components/CustomerAccount/CustomerOrderPage';
+import CheckoutSuccess from './Components/Checkout/CheckoutSuccess';
 
 export default (
     <Switch>
@@ -21,5 +22,6 @@ export default (
         <Route exact path = '/account' component={Account} />
         <Route path='/account/order/:id' component={CustomerOrderPage} />
         <Route path = '/admin/dashboard' component={AdminDashboard} />
+        <Route path= '/checkout/success' component={CheckoutSuccess}/>
     </Switch>
 )

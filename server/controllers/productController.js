@@ -34,10 +34,16 @@ module.exports = {
             res.sendStatus(200);
         }).catch(err => console.log(err));
     },
-    removeProduct: async (req, res) => {
+    removeProduct: (req, res) => {
         const id = +req.params.id,
             db = req.app.get('db');
 
         db.products.remove_product(id).then(_ => res.sendStatus(200)).catch(err => console.log(err));
+    },
+    returnProduct: (req, res) => {
+        const id = +req.params.id,
+            db = req.app.get('db');
+
+        db.products.return_product(id).then(_ => res.sendStatus(200)).catch(err => console.log(err));
     }
 }

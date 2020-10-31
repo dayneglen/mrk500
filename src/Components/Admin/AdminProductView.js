@@ -44,7 +44,7 @@ const AdminProductView = props => {
                     <h3><span>Price</span>: ${shirtPrice}</h3>
                     {show_product
                         ? <button className='btn' onClick={handleEdit}>Edit Shirt</button>
-                        : <button className='btn'>Add Item to Store</button>}
+                        : <button className='btn' onClick={() => props.returnProductFn(product_id)}>Add Item to Store</button>}
                 </section>}
 
 

@@ -37,23 +37,21 @@ const Header = props => {
                         : <Link to='/account'>Account</Link>
                     : <Link to='/login'>Login</Link>}
                 <Link to='/shirts'>Products</Link>
-                {cartQuantity === 0
-                    ? null
-                    : <span className='cart-quantity'>{cartQuantity}</span>}
+                
 
-                <Link to='/cart'>Cart</Link>
+                <Link className='cart-container-header' to='/cart'>
+                    Cart
+                    <img className='cart-img' src='http://www.clker.com/cliparts/U/D/n/G/6/h/white-shopping-cart-md.png' alt='cart' />
+                    {cartQuantity === 0
+                        ? null
+                        : <span className='cart-quantity'>{cartQuantity}</span>}
+                    </Link>
+                
             </nav>
 
             {/* SLide Out Menu */}
             <div className={menu ? 'menu slide' : 'menu'}>
                 <hr/>
-                {props.userReducer.user.is_admin
-                    ? <section>
-                        <Link to='/add'>Add Product</Link>
-                        <hr />
-                    </section>
-                    : null}
-               
                 {props.userReducer.user.email
                     ? props.userReducer.user.is_admin
                         ? <Link to='/admin/dashboard'>Dashboard</Link>

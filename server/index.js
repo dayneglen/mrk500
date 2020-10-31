@@ -9,6 +9,7 @@ const express = require('express'),
       orderCtrl = require('./controllers/orderController'),
       stripeCtrl = require('./controllers/stripeController'),
       emailCtrl = require('./controllers/nodemailerController'),
+      newsletterCtrl = require('./controllers/newsletterController'),
       app = express();
 
 app.use(express.json());
@@ -39,6 +40,7 @@ app.get('/api/product/:id', productCtrl.getProduct);
 app.post('/api/product', productCtrl.addProduct);
 app.put('/api/product/:id', productCtrl.updateProduct);
 app.put('/api/product/remove/:id', productCtrl.removeProduct);
+app.put('/api/product/add/:id', productCtrl.returnProduct);
 
 // Cart endpoints
 app.get('/api/cart', cartCtrl.getCart);
@@ -50,6 +52,11 @@ app.delete('/api/cart/:id', cartCtrl.removeItem);
 app.post('/api/order/:id', orderCtrl.placeOrder);
 app.post('/api/customer/order/:id', orderCtrl.getOrder);
 app.get('/api/orders/:id', orderCtrl.getCustomerOrders);
+
+//Newsletter email endpoints
+app.get('/api/newsletter/emails', newsletterCtrl.getEmails);
+app.post('/api/newsletter/email', newsletterCtrl.addEmail);
+app.delete('/api/newsletter/email/:id', newsletterCtrl.deleteEmail);
 
 // Stripe Endpoint
 app.post('/api/payment', stripeCtrl.completePayment);

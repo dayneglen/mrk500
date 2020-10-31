@@ -4,14 +4,24 @@ import Contact from './Contact';
 const Landing = props => {
     
     return (
-        <div>
+        <div className='landing-body'>
             <section className='welcome-container'>
                 <section className='welcome-message'>
                     <h1>Premium Shirts for not a Premium Price</h1>
-                    <h2>New Designs Added Monthly</h2>
                     <Link to='/shirts'>
                         <button className='btn blue-green-btn'>Shop Our Current Designs</button>
                     </Link>
+                </section>
+            </section>
+            <section className='new-designs-container'>
+                <h1>New Designs Added Monthly</h1>
+            </section>
+            <section className='shirt-facts-container'>
+                <section className='shirt-facts'>
+                    <h1>DOUBLE STICHED SEAMS</h1>
+                    <h1>MORDERN, COMFORTABLE FIT</h1>
+                    <h1>LIMITED EDITIONS</h1>
+                    <h1>100% COTTON</h1>
                 </section>
             </section>
             <section className='why-buy-container'>

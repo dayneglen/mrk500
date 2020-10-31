@@ -1,9 +1,20 @@
+.landing-body {
+    background-image: url('https://mrk500.s3-us-west-1.amazonaws.com/man-1868320.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+ 
+    width: 100vw;
+}
+
 .welcome-container {
-    background-image: url('https://mrk500.s3-us-west-1.amazonaws.com/Website+Main.jpg');
     height: 100vh;
     width:100vw;
-    background-size: cover;
     position: relative;
+     background-image: url('https://mrk500.s3-us-west-1.amazonaws.com/Website+Main.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .welcome-message {
@@ -16,9 +27,6 @@
     h1 {
         font-size: 3rem;
     }
-    h2 {
-        font-size: 2rem;
-    }
     button {
         height: 40px;
         width: 350px;
@@ -28,6 +36,8 @@
 
 .why-buy-container {
     width: 100vw;
+    padding: 20px;
+    background-color: $background-color;
 }
 
 .why-buy-wrapper {
@@ -81,6 +91,8 @@
     background-image: url('https://mrk500.s3-us-west-1.amazonaws.com/textile-1824172_1920.jpg');
 }
 
+// Contact Us Component
+
 .contact-us-container {
     background-color: $menu-color;
     height: 500px;
@@ -92,7 +104,6 @@
     height: 400px;
     width: 80vw;
     margin: 0 auto;
-    
     input {
         background: none;
         border: none;
@@ -121,5 +132,43 @@
         font-size: 2rem;
         color: #fff;
         margin-bottom: 20px;
+    }
+}
+
+.sent-message {
+    color: #fff;
+    text-align: center;
+    p {
+        margin: 10px;
+        font-size: 1.1rem;
+    }
+}
+
+.shirt-facts-container {
+    width: 100vw;
+    height: 25vh;
+    background-color: rgba(0,0,0, 0.8);
+}
+
+.shirt-facts {
+    width: 80vw;
+    height: 25vh;
+    margin: 0 auto;
+    @include flex(space-between, center, row);
+    h1 {
+        color: white;
+        font-size: 1.5rem;
+        width: 200px;
+    }
+}
+
+.new-designs-container {
+    height: 20vh;
+    background-color: darken($menu-color, 15%);
+    h1 {
+        color: white;
+        text-align: center;
+        line-height: 20vh;
+        font-size: 3rem;
     }
 }

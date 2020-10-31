@@ -38,4 +38,9 @@ CREATE TABLE shirt (
     shirt_id SERIAL PRIMARY KEY,
     product_id INTEGER REFERENCES product(product_id),
     product_size_id INTEGER REFERENCES product_size(product_size_id)
-)
+);
+
+CREATE TABLE newsletter_email (
+    newsletter_email_id SERIAL PRIMARY KEY,
+    email VARCHAR(100)
+);

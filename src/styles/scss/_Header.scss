@@ -69,10 +69,12 @@ header {
 .cart-quantity {
      color: #fff;
     background-color: $blue-green;
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     text-align: center;
+    position: absolute;
+    font-size: 13px;
 }
 
 .slide {
@@ -87,4 +89,15 @@ header {
         display: none;
     }
     
+}
+
+.cart-container-header {
+    @include flex(center, flex-start, row);
+    position: relative;
+}
+
+.cart-img {
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
 }
