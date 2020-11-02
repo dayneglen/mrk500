@@ -35,7 +35,7 @@ const AdminProductView = props => {
                     <input value={shirtName} onChange={e => setShirtName(e.target.value)} />
                     <input value={imgUrl} onChange={e => setImageUrl(e.target.value)} />
                     <input value={shirtPrice} onChange={e => setShirtPrice(e.target.value)} />
-                    <button className='btn' onClick={() => props.removeProductFn(product_id)}>Remove Shirt</button>
+                    <button className='btn blue-green-btn' onClick={() => props.removeProductFn(product_id)}>Remove Shirt</button>
                     <button className='btn' onClick={handleEdit}>Save Changes</button>
                 </section>
                 : <section className='admin-product-info-container'>
@@ -43,8 +43,8 @@ const AdminProductView = props => {
                     <h3><span>Image Url:</span> {imgUrl}</h3>
                     <h3><span>Price</span>: ${shirtPrice}</h3>
                     {show_product
-                        ? <button className='btn' onClick={handleEdit}>Edit Shirt</button>
-                        : <button className='btn' onClick={() => props.returnProductFn(product_id)}>Add Item to Store</button>}
+                        ? <button className='btn blue-green-btn' onClick={handleEdit}>Edit Shirt</button>
+                        : <button className='btn blue-green-btn' onClick={() => props.returnProductFn(product_id)}>Add Item to Store</button>}
                 </section>}
 
 

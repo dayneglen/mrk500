@@ -1,5 +1,6 @@
 .main-dashboard {
-    margin-top: 100px;
+    margin-top: 120px;
+    margin-bottom: 100px;
 }
 
 .admin-menu-container {
@@ -57,10 +58,8 @@
         font-size: 1rem;
     }
     button {
-        background-color: $blue-green;
         width: 100px;
         height: 30px;
-        color: white;
     }
     span {
         font-weight: bold;
@@ -85,7 +84,7 @@
 }
 
 .add-form{
-    margin: 125px 200px;
+    margin: 125px 250px;
     height: 400px;
     @include flex(space-evenly, flex-start, column);
     h1 {
@@ -107,4 +106,18 @@
     }
 }
 
-
+.subscriber-email {
+    margin-left: 200px;
+    @include flex(flex-start, center, row);
+    h1 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        margin-right: 15px;
+    }
+    button {
+        margin-bottom: 15px;
+        height: 25px;
+        width: 100px;
+    }
+    
+}

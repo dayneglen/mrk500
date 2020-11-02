@@ -29,10 +29,10 @@ massive({
 });
 
 // Auth endpoints
-app.post('/auth/login', authCtrl.login);
-app.post('/auth/register', authCtrl.register);
 app.get('/auth/logout', authCtrl.logout);
 app.get('/auth/user', authCtrl.getUser);
+app.post('/auth/login', authCtrl.login);
+app.post('/auth/register', authCtrl.register);
 
 // Product endpoints
 app.get('/api/products', productCtrl.getProducts);
@@ -49,9 +49,9 @@ app.put('/api/cart/:id', cartCtrl.updateQuantity);
 app.delete('/api/cart/:id', cartCtrl.removeItem);
 
 // Order endpoints
+app.get('/api/orders/:id', orderCtrl.getCustomerOrders);
 app.post('/api/order/:id', orderCtrl.placeOrder);
 app.post('/api/customer/order/:id', orderCtrl.getOrder);
-app.get('/api/orders/:id', orderCtrl.getCustomerOrders);
 
 //Newsletter email endpoints
 app.get('/api/newsletter/emails', newsletterCtrl.getEmails);
@@ -63,6 +63,7 @@ app.post('/api/payment', stripeCtrl.completePayment);
 
 // Nodemailer Endpoint
 app.post('/api/email', emailCtrl.sendContact);
+app.post('/api/newsletter/welcome', emailCtrl.sendNewsletterWelcome);
 
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));

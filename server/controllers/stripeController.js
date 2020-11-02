@@ -1,11 +1,11 @@
-const {STRIPE_SECRET_KEY} = process.env,
+const { STRIPE_SECRET_KEY } = process.env,
     stripe = require('stripe')(STRIPE_SECRET_KEY);
 
 module.exports = {
     completePayment: async (req, res) => {
         // Getting cart items ready for stripe payment
-        const {cart} = req.body;
-        const cartItems =cart.map((item) => {
+        const { cart } = req.body;
+        const cartItems = cart.map((item) => {
             const { shirt } = item;
             const shirtPrice = shirt.price * 100;
             const taxPrice = shirtPrice * 0.0727;
@@ -21,8 +21,8 @@ module.exports = {
                 },
                 quantity: item.quantity,
             }
-            return lineItem
-            
+            return lineItem;
+
         })
 
         // Sending session for redirect to stripe for payment
@@ -37,6 +37,6 @@ module.exports = {
             },
         });
 
-        res.send({ id: session.id})
+        res.send({ id: session.id })
     }
 }

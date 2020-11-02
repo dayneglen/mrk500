@@ -1,7 +1,6 @@
 .products-container {
     width: 80vw;
-    margin: 0 auto;
-    margin-top: 130px;
+    margin: 130px auto;
     @include flex(center, space-evenly, row);
     flex-wrap: wrap;
 }

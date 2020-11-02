@@ -3,18 +3,21 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import AdminProductView from './AdminProductView';
 import AddProduct from './AddProduct';
+import SubscriberEmail from './SubscriberEmail';
 import { getUser } from '../../redux/userReducer';
 
 const AdminDashboard = props => {
     const [productList, setProductList] = useState([]),
           [pageView, setPageView] = useState('one'),
-          [activePage, setActivePage] = useState('one');
+          [activePage, setActivePage] = useState('one'),
+          [subscriberList, setSubscriberList] = useState([]);
 
     useEffect(() => {
         if (!props.userReducer.user.is_admin) {
             props.history.push('/');
         }
         getProductList();
+        getSubscriberList();
     }, [pageView])
 
     const handleLogout = () => {
@@ -28,6 +31,12 @@ const AdminDashboard = props => {
         axios.get('/api/products').then(res => {
             setProductList([...res.data]);
         }).catch(err => console.log(err))
+    }
+
+    const getSubscriberList = () => {
+        axios.get('/api/newsletter/emails').then(res => {
+            setSubscriberList([...res.data]);
+        }).catch(err => console.log(err));
     }
 
     const removeProduct = id => {
@@ -49,6 +58,12 @@ const AdminDashboard = props => {
         }).catch(err => console.log(err));
     }
 
+    const deleteEmail = id => {
+        axios.delete(`/api/newsletter/email/${id}`).then(_ => {
+            getSubscriberList();
+        }).catch(err => console.log(err));
+    }
+
     const handlePageView = currentPageView => {
         setPageView(currentPageView);
         setActivePage(currentPageView);
@@ -66,10 +81,15 @@ const AdminDashboard = props => {
             : <AdminProductView key={i} product={product} returnProductFn={returnProduct}removeProductFn={removeProduct} />
     });
 
+    const emailSubscribers = subscriberList.map((email, i) => {
+        return <SubscriberEmail key={i} subscriberEmail={email} deleteEmailFn={deleteEmail} />
+    });
+
     const page = {
         one: currentProducts,
         two: <AddProduct handlePageViewFn={handlePageView} />,
-        three: pastProducts
+        three: pastProducts,
+        four: emailSubscribers
     }
 
     const activePageStyle = {
@@ -84,10 +104,10 @@ const AdminDashboard = props => {
                     <button style={activePage === 'one' ? activePageStyle : null} onClick={() => handlePageView('one')}>Manage Current Products</button>
                     <button style={activePage === 'two' ? activePageStyle : null} onClick={() => handlePageView('two')}>Add Product</button>
                     <button style={activePage === 'three' ? activePageStyle : null} onClick={() => handlePageView('three')}>Past Products</button>
+                    <button style={activePage === 'four' ? activePageStyle : null} onClick={() => handlePageView('four')}>Manage Subscribers</button>
                     <button onClick={handleLogout}>Logout</button>
                 </nav>  
             </section>
-            
            {page[pageView]}
         </main>
     )

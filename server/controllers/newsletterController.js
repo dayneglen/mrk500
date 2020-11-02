@@ -2,10 +2,12 @@ module.exports = {
     addEmail: async (req, res) => {
         const { email } = req.body,
               db = req.app.get('db');
+        
+        console.log(email)
 
         const checkedEmail = await db.newsletter.check_email(email);
 
-        if (checkedEmail) {
+        if (checkedEmail[0]) {
             return res.status(400).send('Email already subscribed')
         }
 
@@ -25,7 +27,7 @@ module.exports = {
               db = req.app.get('db');
 
         db.newsletter.delete_email(id).then(_ => {
-            res.sendStatus();
+            res.sendStatus(200);
         }).catch(err => console.log(err));
     }
 }
