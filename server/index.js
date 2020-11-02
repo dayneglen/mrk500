@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express'),
       massive = require('massive'),
       session = require('express-session'),
+      path = require('path'),
       { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env,
       authCtrl = require('./controllers/authController'),
       productCtrl = require('./controllers/productController'),
@@ -65,5 +66,10 @@ app.post('/api/payment', stripeCtrl.completePayment);
 app.post('/api/email', emailCtrl.sendContact);
 app.post('/api/newsletter/welcome', emailCtrl.sendNewsletterWelcome);
 
+app.use(express.static(__dirname + '/../build'));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));
