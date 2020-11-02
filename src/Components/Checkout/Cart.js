@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { getCart } from '../../redux/cartReducer';
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
-import publicKey from '../../stripe';
+
+const publicKey = 'pk_test_51HXU62FtOLriW099Szn8tBSQhNIT6NE1uP90pXyRvLylRPepOnlsDRXbcb5bqLjOlFBJFXGn72S3NEATBfOeGd1c00qYf63zQK';
 
 const stripePromise = loadStripe(publicKey);
 
