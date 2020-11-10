@@ -6,6 +6,6 @@ MRK500 is an eccomerce site where customers can create accounts and buy premium 
 
 Technologies used for this project include React, NodeJS, SASS, Stripe API, PostgreSQL, and Bcrypt for authentification.
 
-# App URL
+## App URL
 
 www.mrk500.com
